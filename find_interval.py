@@ -14,7 +14,7 @@ def simulate_stock_price(S0, mu, sigma, T=1, N=500):
     return t, stock_price
 
 def interval(file):
-    data = pd.read_csv(file,names=['time', 'complete', 'o', 'h', 'l', 'Close', 'v']) #https://www.dukascopy.com/swiss/english/marketwatch/historical/
+    data = pd.read_csv(file,names=['time', 'complete', 'o', 'h', 'l', 'Close', 'v'])
     #data["Close"] = (data["Bid"] + data["Ask"])/2
     log_returns = np.log(data["Close"]/data["Close"].shift(1))
     data["log returns"] = log_returns[1:]
